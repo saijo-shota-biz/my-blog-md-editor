@@ -1,0 +1,24 @@
+@import "../../styles/common";
+
+.textarea {
+
+  @include themify($themes) {
+    background-color: themed("backgroundColor");
+  }
+
+  border: none;
+  resize: none;
+  width: 100%;
+  height: 100%;
+  outline: none;
+  font-size: 20px;
+  font-family: arial, sans-serif;
+  padding: 5px 5px;
+  box-sizing: border-box;
+ 
+  &::placeholder {
+    @include themify($themes) {
+      color: themed("secondaryText");
+    }
+  }
+}

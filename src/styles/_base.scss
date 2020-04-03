@@ -1,4 +1,28 @@
+@import "common";
+
 html,
 body {
   height: 100vh;
+}
+
+.app {
+  @include themify($themes) {
+    background-color: themed("backgroundColor");
+    color: themed("primaryText");
+  }
+}
+
+header {
+  height: 5vh;
+  width: 100vw;
+}
+
+main {
+  height: 90vh;
+  width: 100vw;
+}
+
+footer {
+  height: 5vh;
+  width: 100vw;
 }

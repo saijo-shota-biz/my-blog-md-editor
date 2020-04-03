@@ -1,5 +1,12 @@
 $themes: (
   light: (),
   dark: (),
-  default: (),
+  default: (
+    primary: #0097A7,
+    accent: #607D8B,
+    text: #FFFFFF,
+    primaryText: #212121,
+    secondaryText: #BDBDBD,
+    backgroundColor: whitesmoke
+  ),
 );

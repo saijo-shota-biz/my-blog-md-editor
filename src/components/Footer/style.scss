@@ -1,0 +1,12 @@
+@import "../../styles/common";
+
+.footer {
+  @include themify($themes) {
+    background-color: themed("primary");
+    color: themed('text');
+  }
+
+  &__text {
+    padding: 7px 7px;
+  }
+}

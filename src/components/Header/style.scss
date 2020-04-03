@@ -1,0 +1,12 @@
+@import "../../styles/common";
+
+.header {
+  @include themify($themes) {
+    background-color: themed("primary");
+    color: themed('text');
+  }
+
+  &__title {
+    padding: 10px 10px;
+  }
+}
