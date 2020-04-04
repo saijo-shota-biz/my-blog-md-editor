@@ -1,0 +1,22 @@
+{
+  "files": {
+    "main.css": "/my-blog-md-editor/static/css/main.d63f20be.chunk.css",
+    "main.js": "/my-blog-md-editor/static/js/main.57d41a62.chunk.js",
+    "main.js.map": "/my-blog-md-editor/static/js/main.57d41a62.chunk.js.map",
+    "runtime-main.js": "/my-blog-md-editor/static/js/runtime-main.c0411a92.js",
+    "runtime-main.js.map": "/my-blog-md-editor/static/js/runtime-main.c0411a92.js.map",
+    "static/js/2.5fe97d5f.chunk.js": "/my-blog-md-editor/static/js/2.5fe97d5f.chunk.js",
+    "static/js/2.5fe97d5f.chunk.js.map": "/my-blog-md-editor/static/js/2.5fe97d5f.chunk.js.map",
+    "index.html": "/my-blog-md-editor/index.html",
+    "precache-manifest.118348f243a02fc66a1edf79c9b860ab.js": "/my-blog-md-editor/precache-manifest.118348f243a02fc66a1edf79c9b860ab.js",
+    "service-worker.js": "/my-blog-md-editor/service-worker.js",
+    "static/css/main.d63f20be.chunk.css.map": "/my-blog-md-editor/static/css/main.d63f20be.chunk.css.map",
+    "static/js/2.5fe97d5f.chunk.js.LICENSE.txt": "/my-blog-md-editor/static/js/2.5fe97d5f.chunk.js.LICENSE.txt"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.c0411a92.js",
+    "static/js/2.5fe97d5f.chunk.js",
+    "static/css/main.d63f20be.chunk.css",
+    "static/js/main.57d41a62.chunk.js"
+  ]
+}
