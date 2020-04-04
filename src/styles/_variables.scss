@@ -2,11 +2,13 @@ $themes: (
   light: (),
   dark: (),
   default: (
-    primary: #0097A7,
+    darkPrimary: #0097A7,
+    lightPrimary: #B2EBF2,
+    primary: #00BCD4,
     accent: #607D8B,
     text: #FFFFFF,
     primaryText: #212121,
-    secondaryText: #BDBDBD,
-    backgroundColor: whitesmoke
+    secondaryText: #757575,
+    backgroundColor: #BDBDBD
   ),
 );

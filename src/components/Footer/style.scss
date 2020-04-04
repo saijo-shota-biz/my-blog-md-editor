@@ -2,11 +2,11 @@
 
 .footer {
   @include themify($themes) {
-    background-color: themed("primary");
+    background-color: themed("darkPrimary");
     color: themed('text');
   }
 
   &__text {
-    padding: 7px 7px;
+    padding: 0 7px;
   }
 }

@@ -1,4 +1,6 @@
+@import "../../styles/common";
 @import "highlight.js/scss/darcula.scss";
+@import url(http://fonts.googleapis.com/earlyaccess/notosansjapanese.css);
 
 .md-view {
   width: 100%;
@@ -6,19 +8,242 @@
   padding: 5px 5px;
   box-sizing: border-box;
   overflow: auto;
+  font-family: 'Noto Sans Japanese', sans-serif;
+  font-weight: 400;
 
-  // ```
+  &::-webkit-scrollbar {
+    width: 5px;
+  }
+
+  &::-webkit-scrollbar-thumb {
+    @include themify($themes) {
+      background-color: themed("accent");
+    }
+    border-radius: 10px;
+  }
+
+  // # h1
+  & h1 {
+    font-size: 30px;
+    &::first-letter {
+      font-size: 40px;
+    }
+
+    & .datetime {
+      font-size: 10px;
+      text-align: right;
+      margin-bottom: 15px;
+
+      @include themify($themes) {
+        color: themed('secondaryText');
+      }
+    }
+
+    &+hr {
+      margin: 0;
+      margin-bottom: 10px;
+      @include themify($themes) {
+        border-top: solid 2px themed("accent");
+      }
+    }
+  }
+
+  // ## h2
+  & h2 {
+    font-size: 26px;
+    padding: 5px 10px;
+    box-sizing: border-box;
+    margin-bottom: 50px;
+
+    @include themify($themes) {
+      background-color: themed('primary');
+      color: themed('text');
+      border-top: solid 10px themed('accent');
+      border-bottom: solid 10px themed('accent');
+    }
+  }
+
+  // ### h3
+  & h3 {
+    font-size: 22px;
+    padding: 5px 10px;
+    margin-bottom: 45px;
+    box-sizing: border-box;
+
+    @include themify($themes) {
+      color: themed('primaryText');
+      border-left: solid 10px themed('primary');
+    }
+  }
+
+  // **strong**
+  & strong {
+    font-weight: bold;
+    @include themify($themes) {
+      background: linear-gradient(transparent 50%, themed('lightPrimary'));
+    }
+  }
+
+  // p
+  & p {
+    margin-bottom: 30px;
+  }
+
+  // `code`
+  & code {
+    padding: 5px 10px;
+    font-family: consolas;
+    border-radius: 5px;
+    @include themify($themes) {
+      background-color: themed("accent");
+      color: themed("text");
+    }
+  }
+
+  // ```lang
   // code block
   // ```
-  & code[class^="language-"] {
-    display: block;
+  & pre[class^="lang-"] {
     width: 100%;
+    padding: 5px 10px;
     overflow-x: auto;
-    padding: 5px;
+    margin-bottom: 30px;
     box-sizing: border-box;
     color: #bababa;
     background-color: #2b2b2b;
     font-size: 20px;
-    font-family: consolas;
+    
+    &::-webkit-scrollbar {
+      height: 5px;
+    }
+  
+    &::-webkit-scrollbar-thumb {
+      @include themify($themes) {
+        background-color: themed("accent");
+      }
+      border-radius: 10px;
+    }
+  }
+
+  // - list
+  & ul {
+    list-style: none;
+    margin-bottom: 30px;
+    & li {
+      position: relative;
+      padding: 0.5em 0.5em 0.5em 2em;
+      line-height: 1.4;
+      border-radius: 25px;
+      margin: 10px 0;
+
+      @include themify($themes) {
+        color: themed('text');
+        background-color: themed("accent");
+      }
+
+      &::before {
+        font-family: "Font Awesome 5 Free";
+        content: "\f138";
+        font-weight: 900;
+        position: absolute;
+        font-size: 1em;
+        left: 0.5em;
+        top: 0.5em;
+        
+        @include themify($themes) {
+          color: themed('primary');
+        }
+      }
+
+      & > p {
+        margin-bottom: 0;
+      }
+    }
+
+    & > *:not(li) {
+      margin-bottom: 20px;
+      margin-left: 2rem;
+    }
+  }
+
+  // > blockquote
+  & blockquote {
+    margin-bottom: 30px;
+    position: relative;
+    padding: 10px 15px 10px 60px;
+    box-sizing: border-box;
+    font-style: italic;
+
+    @include themify($themes) {
+      background-color: themed('accent');
+      color: themed("text");
+      border-left: solid 10px themed("primary");
+    }
+
+    &::before{
+      display: inline-block;
+      position: absolute;
+      top: 15px;
+      left: 15px;
+      content: "\f10d";
+      font-weight: 900;
+      font-family: "Font Awesome 5 Free";
+      font-size: 30px;
+      line-height: 1;
+      font-weight: 900;
+
+      @include themify($themes) {
+        color: themed("primary");
+      }
+    }
+
+    & p {
+      padding: 0;
+      margin: 7px 0;
+      line-height: 1.7;
+    }
+
+    & cite {
+      display: block;
+      text-align: right;
+      font-size: 0.9em;
+      font-style: normal;
+      @include themify($themes) {
+        color: themed("text");
+      }
+
+      &::before {
+        content: "引用元: ";
+      }
+    }
+  }
+
+  & table {
+    width: 100%;
+    margin-bottom: 30px;
+
+    & thead {
+      @include themify($themes) {
+        border-bottom: double 4px themed("accent");
+      }
+
+      & th {
+        text-align: left;
+        padding: 5px;
+      }
+    }
+
+    & tbody {
+      & tr {
+        @include themify($themes) {
+          border-top: solid 2px themed("accent");
+        }
+      }
+
+      & td {
+        text-align: left;
+        padding: 5px;
+      }
+    }
   }
 }

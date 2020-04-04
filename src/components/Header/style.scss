@@ -2,11 +2,11 @@
 
 .header {
   @include themify($themes) {
-    background-color: themed("primary");
+    background-color: themed("darkPrimary");
     color: themed('text');
   }
 
   &__title {
-    padding: 10px 10px;
+    padding: 0 10px;
   }
 }

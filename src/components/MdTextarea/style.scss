@@ -21,4 +21,15 @@
       color: themed("secondaryText");
     }
   }
+
+  &::-webkit-scrollbar {
+    width: 5px;
+  }
+
+  &::-webkit-scrollbar-thumb {
+    @include themify($themes) {
+      background-color: themed("accent");
+    }
+    border-radius: 10px;
+  }
 }
