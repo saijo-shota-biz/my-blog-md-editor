@@ -1,5 +1,6 @@
 {
   "name": "my-blog-md-editor",
+  "homepage": "https://saijo-shota-biz.github.io/my-blog-md-editor/",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
@@ -26,7 +27,9 @@
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
-    "lint": "tslint --fix -p tsconfig.json & stylelint src/styles/**/*.scss --fix"
+    "lint": "tslint --fix -p tsconfig.json & stylelint src/styles/**/*.scss --fix",
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d build"
   },
   "eslintConfig": {
     "extends": "react-app"
@@ -44,6 +47,7 @@
     ]
   },
   "devDependencies": {
+    "gh-pages": "^2.2.0",
     "node-sass": "^4.13.1",
     "prettier": "^2.0.2",
     "stylelint": "^13.2.1",
