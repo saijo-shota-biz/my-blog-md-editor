@@ -1,8 +1,22 @@
 import React from "react";
 import "./style.scss";
 
-const MdTextarea: React.FC = () => {
-  return (<textarea className="textarea" placeholder="input to article"></textarea>);
+type MdTextareaProps = {
+  value: string,
+  setValue: (event: React.ChangeEvent<HTMLTextAreaElement>) => void
+}
+
+const MdTextarea: React.FC<MdTextareaProps> = ({ value, setValue }: MdTextareaProps) => {
+
+  return (
+    <>
+      <textarea
+        className="md-textarea"
+        placeholder="input to article"
+        value={value} onChange={setValue}
+      ></textarea>
+    </>
+  );
 }
 
 export default MdTextarea;

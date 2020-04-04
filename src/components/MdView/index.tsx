@@ -1,7 +1,14 @@
 import React from "react";
+import "./style.scss";
 
-const MdView: React.FC = () => {
-  return (<></>);
+type MdViewProps = {
+  html: string
+};
+
+const MdView: React.FC<MdViewProps> = ({ html }: MdViewProps) => {
+  return (
+    <div className="md-view" dangerouslySetInnerHTML={{ __html: html }}></div>
+  );
 }
 
 export default MdView;

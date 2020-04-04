@@ -1,6 +1,6 @@
 @import "../../styles/common";
 
-.textarea {
+.md-textarea {
 
   @include themify($themes) {
     background-color: themed("backgroundColor");
