@@ -36,26 +36,31 @@ renderer.codespan = (code: string): string => {
 // ```lang
 // code block
 // ```
-renderer.code = (code: string, lang: string) => {
+renderer.code = (code: string, languages: string) => {
+
+  const langFileName = (languages || "plaintext").split(":");
+  const lang = langFileName[0];
+  const fileName = langFileName[1] || "";
+
+  const fileNameBlock = fileName ? `<code class="filename">${fileName}</code>` : "";
 
   if (lang === "table") {
     const rows = code.split("\n").map(row => row.split(","));
-    console.log(rows)
-    const html = `
+    return `
+      ${fileNameBlock}
       <table>
         <thead>
           <tr>${(rows.shift() || []).map(cell => (`<th>${cell}</th>`)).join("")}</tr>
         </thead>
         <tbody>
-          ${rows.map(row => (`<tr>${row.map(cell => (`<td>${cell}</td>`)).join()}</tr>`)).join()}
+          ${rows.map(row => (`<tr>${row.map(cell => (`<td>${cell}</td>`)).join("")}</tr>`)).join("")}
         </tbody>
       </table>
     `;
-    console.log(html);
-    return html;
   } else {
     return `
-    <pre class="lang-${lang || "plaintext"}">${
+    <pre class="lang-${lang}">${fileNameBlock}
+${
       highlightjs.highlightAuto(code, [lang]).value
     }</pre>
   `;
