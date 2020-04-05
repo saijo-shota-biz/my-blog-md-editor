@@ -11,7 +11,7 @@ function App() {
   return (
     <div className={`theme-${theme}`}>
       <div className="app">
-        <BrowserRouter>
+        <BrowserRouter  basename={process.env.PUBLIC_URL}>
           <Header />
           <main>
             <Switch>
