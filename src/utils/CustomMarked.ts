@@ -37,11 +37,29 @@ renderer.codespan = (code: string): string => {
 // code block
 // ```
 renderer.code = (code: string, lang: string) => {
-  const body = highlightjs.highlightAuto(code, [lang]).value;
-  
-  return `
-    <pre class="lang-${lang || "plaintext"}">${body}</pre>
+
+  if (lang === "table") {
+    const rows = code.split("\n").map(row => row.split(","));
+    console.log(rows)
+    const html = `
+      <table>
+        <thead>
+          <tr>${(rows.shift() || []).map(cell => (`<th>${cell}</th>`)).join("")}</tr>
+        </thead>
+        <tbody>
+          ${rows.map(row => (`<tr>${row.map(cell => (`<td>${cell}</td>`)).join()}</tr>`)).join()}
+        </tbody>
+      </table>
+    `;
+    console.log(html);
+    return html;
+  } else {
+    return `
+    <pre class="lang-${lang || "plaintext"}">${
+      highlightjs.highlightAuto(code, [lang]).value
+    }</pre>
   `;
+  }
 }
 
 // p
@@ -113,7 +131,6 @@ renderer.tablecell = (content: string, flags: { header: boolean, align: string |
 const parse = (mdString: string): string => {
 
   marked.setOptions({
-    langPrefix: 'lang-',
     headerIds: false,
     pedantic: false,
     gfm: true,
