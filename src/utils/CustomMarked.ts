@@ -45,26 +45,47 @@ renderer.code = (code: string, languages: string) => {
   const fileNameBlock = fileName ? `<code class="filename">${fileName}</code>` : "";
 
   if (lang === "table") {
-    const rows = code.split("\n").map(row => row.split(","));
     return `
       ${fileNameBlock}
-      <table>
-        <thead>
-          <tr>${(rows.shift() || []).map(cell => (`<th>${cell}</th>`)).join("")}</tr>
-        </thead>
-        <tbody>
-          ${rows.map(row => (`<tr>${row.map(cell => (`<td>${cell}</td>`)).join("")}</tr>`)).join("")}
-        </tbody>
-      </table>
+      ${renderTable(code)}
+    `;
+  } else if (lang === "comment") {
+    const rows = code.split("\n").join("<br>");  
+    return `
+      <div class="container">
+        <div class="comment ${fileName || "left"}">
+          <p>${rows}</p>
+        </div>
+      </div>
     `;
   } else {
     return `
-    <pre class="lang-${lang}">${fileNameBlock}
-${
+    ${fileNameBlock}
+    ${renderCode(code, lang)}
+  `;
+  }
+}
+
+const renderTable = (code: string): string => {
+  const rows = code.split("\n").map(row => row.split(","));
+  return `
+    <table>
+      <thead>
+        <tr>${(rows.shift() || []).map(cell => (`<th>${cell}</th>`)).join("")}</tr>
+      </thead>
+      <tbody>
+        ${rows.map(row => (`<tr>${row.map(cell => (`<td>${cell}</td>`)).join("")}</tr>`)).join("")}
+      </tbody>
+    </table>
+  `;
+}
+
+const renderCode = (code: string, lang: string): string => {
+  return `
+    <pre class="lang-${lang}">${
       highlightjs.highlightAuto(code, [lang]).value
     }</pre>
   `;
-  }
 }
 
 // p
