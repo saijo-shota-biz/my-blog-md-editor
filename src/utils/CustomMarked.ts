@@ -52,11 +52,7 @@ renderer.code = (code: string, languages: string) => {
   } else if (lang === "comment") {
     const rows = code.split("\n").join("<br>");  
     return `
-      <div class="container">
-        <div class="comment ${fileName || "left"}">
-          <p>${rows}</p>
-        </div>
-      </div>
+      ${renderComment(rows, fileName || "left")}
     `;
   } else {
     return `
@@ -80,11 +76,22 @@ const renderTable = (code: string): string => {
   `;
 }
 
-const renderCode = (code: string, lang: string): string => {
+const renderCode = (code: string, lang: string = "left"): string => {
   return `
     <pre class="lang-${lang}">${
       highlightjs.highlightAuto(code, [lang]).value
     }</pre>
+  `;
+}
+
+const renderComment = (message: string, rightOrLeft: string) => {
+  return `
+    <div class="container ${rightOrLeft}">
+      <img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/1.png">
+      <div class="comment">
+        <p>${message}</p>
+      </div>
+    </div>
   `;
 }
 

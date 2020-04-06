@@ -130,35 +130,77 @@
     display: block;
     margin-bottom: 30px;
 
-    & .comment.left {
+    & img {
+      height: 70px;
+      width: 70px;
+      border: solid 1px black;
+      border-radius: 50px;
+    }
+
+    & .comment {
       display: inline-block;
-      position: relative; 
-      margin-left: 20px;
+      position: relative;
       padding: 20px;
       border-radius: 20px;
-      background: #d7ebfe;
-  
+      max-width: 65%;
+
       @include themify($themes) {
         background-color: themed("lightPrimary");
         color: themed("primaryText");
       }
-      
+
       &:after {
         content: "";
         display: inline-block;
         position: absolute;
         top: 20px; 
-        left: -20px;
         border: 10px solid transparent;
-  
-        @include themify($themes) {
-          border-right: 10px solid themed("lightPrimary");
-        }
       }
-      
+
       & p {
         margin: 0;
         padding: 0;
+        word-wrap: break-word;
+        text-align: left;
+      }
+
+    }
+
+    &.left {
+      text-align: left;
+
+      & img {
+        float: left;
+      }
+
+      & .comment {
+        margin-left: 15px;
+        
+        &:after {
+          left: -20px;
+          @include themify($themes) {
+            border-right: 10px solid themed("lightPrimary");
+          }
+        }
+      }
+    }
+
+    &.right {
+      text-align: right;
+
+      & img {
+        float: right;
+      }
+
+      & .comment {
+        margin-right: 20px;
+        
+        &:after {
+          right: -20px;
+          @include themify($themes) {
+            border-left: 10px solid themed("lightPrimary");
+          }
+        }
       }
     }
   }
