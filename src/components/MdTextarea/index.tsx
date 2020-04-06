@@ -12,7 +12,7 @@ const MdTextarea: React.FC<MdTextareaProps> = ({ value, setValue }: MdTextareaPr
     <>
       <textarea
         className="md-textarea"
-        placeholder="input to article"
+        placeholder="input markdown text"
         value={value} onChange={setValue}
       ></textarea>
     </>

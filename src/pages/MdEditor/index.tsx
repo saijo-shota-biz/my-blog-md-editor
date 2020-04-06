@@ -2,12 +2,15 @@ import React, { useState } from "react";
 import "./style.scss";
 import MdTextarea from "components/MdTextarea";
 import MdView from "components/MdView";
-import parse from "utils/CustomMarked";
+import CustomMarked from "utils/CustomMarked";
+import { useUserSetting } from "store/context";
 
 const MdEditor: React.FC = () => {
 
   const [md, setMd] = useState("");
+  const context = useUserSetting();
   const onChangeHandler = (event: React.ChangeEvent<HTMLTextAreaElement>): void => setMd(event.target.value);
+  const customMarked = new CustomMarked(context.userSetting.leftIconUrl, context.userSetting.rightIconUrl);
 
   return (
     <div className="md-editor">
@@ -15,7 +18,7 @@ const MdEditor: React.FC = () => {
         <MdTextarea value={md} setValue={onChangeHandler}></MdTextarea>
       </div>
       <div className="md-editor__block">
-        <MdView html={parse(md)}></MdView>
+        <MdView html={customMarked.parse(md)}></MdView>
       </div>
     </div>
   );

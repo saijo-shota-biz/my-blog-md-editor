@@ -1,7 +1,25 @@
 $themes: (
-  light: (),
-  dark: (),
-  default: (
+  pink-indigo: (
+    darkPrimary: #303F9F,
+    lightPrimary: #C5CAE9,
+    primary: #3F51B5,
+    accent: #FF4081,
+    text: #FFFFFF,
+    primaryText: #212121,
+    secondaryText: #757575,
+    backgroundColor: #FFFFFF
+  ),
+  teal-amber: (
+    darkPrimary: #00796B,
+    lightPrimary: #B2DFDB,
+    primary: #009688,
+    accent: #FFC107,
+    text: #FFFFFF,
+    primaryText: #212121,
+    secondaryText: #757575,
+    backgroundColor: #FFFFFF
+  ),
+  cyan-bluegray: (
     darkPrimary: #0097A7,
     lightPrimary: #B2EBF2,
     primary: #00BCD4,
