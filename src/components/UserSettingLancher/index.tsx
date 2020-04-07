@@ -44,9 +44,12 @@ const UserSettingLancher: React.FC = () => {
               <div className="theme-select">
                 <label className="theme-select__label" htmlFor="theme-design-select">theme</label>
                 <select className="theme-select__input" id="theme-design-select" value={theme} onChange={onChangeSelectHandler}>
-                  <option value="cyan-bluegray">cyan-bluegray</option>
-                  <option value="teal-amber">teal-amber</option>
-                  <option value="pink-indigo">pink-indigo</option>
+                  <option value="cyan">cyan</option>
+                  <option value="teal">teal</option>
+                  <option value="indigo">indigo</option>
+                  <option value="pink">pink</option>
+                  <option value="amber">amber</option>
+                  <option value="purple">purple</option>
                 </select>
               </div>
               <div className="icon-url">

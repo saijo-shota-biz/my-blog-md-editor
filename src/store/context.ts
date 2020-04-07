@@ -10,7 +10,7 @@ export type UserSetting = {
 export const STORAGE_KEY = "my-blog-md-editor";
 
 const userSetting: UserSetting = JSON.parse(localStorage.getItem(STORAGE_KEY) || `{
-  "theme": "cyan-bluegray",
+  "theme": "cyan",
   "leftIconUrl": "http://pictogram2.com/p/p0973/i/m.png",
   "rightIconUrl": "http://pictogram2.com/p/p0823/i/m.png"
 }`);
