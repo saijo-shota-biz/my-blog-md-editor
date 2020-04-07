@@ -12,6 +12,7 @@
   font-weight: 400;
 
   &::-webkit-scrollbar {
+    height: 5px;
     width: 5px;
   }
 
@@ -58,8 +59,8 @@
     @include themify($themes) {
       background-color: themed('primary');
       color: themed('text');
-      border-top: solid 10px themed('accent');
-      border-bottom: solid 10px themed('accent');
+      border-top: solid 3px themed('accent');
+      border-bottom: solid 3px themed('accent');
     }
   }
 
@@ -73,6 +74,7 @@
     @include themify($themes) {
       color: themed('primaryText');
       border-left: solid 10px themed('primary');
+      border-bottom: solid 3px themed('primary');
     }
   }
 
