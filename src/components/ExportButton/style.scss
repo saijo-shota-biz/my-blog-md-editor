@@ -1,34 +1,19 @@
 @import "../../styles/common";
 
 .export {
-  float: right;
-  height: 32px;
-  height: 5vh;
-  
   &__btn {
-    display: inline-block;
-    border-radius: 50%;
-    text-align: center;
+    float: right;
+    width: 22px;
     height: 32px;
-    width: 32px;
+    border-radius: 50%;
+    margin: 2px 0;
+    padding: 0 5px;
+    text-align: center;
+
     &:hover {
       @include themify($themes) {
         background-color: themed("lightPrimary");
       }
     }
   }
-
-  &__filename {
-    border: none;
-    border-radius: 15px;
-    height: 30px;
-    width: 300px;
-    margin: 4px 10px;
-    padding: 3px 15px;
-    box-sizing: border-box;
-  }
-}
-
-.export-btn {
-  
 }

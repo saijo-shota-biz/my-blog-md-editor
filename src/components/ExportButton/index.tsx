@@ -1,4 +1,4 @@
-import React, { useContext, useState } from "react";
+import React, { useContext   } from "react";
 import "./style.scss";
 import { UserSettingContext } from "store/context";
 
@@ -6,9 +6,14 @@ const ExportButton = () => {
 
   const context = useContext(UserSettingContext);
 
-  const [filename, setFilename] = useState("");
-
   const exportHtml = (): void => {
+
+    const filename = window.prompt("HTMLをダウンロードします。\nファイル名を入力してください。");
+
+    if (filename === null) {
+      return;
+    }
+
     const body = document.getElementsByClassName("md-editor__block")[1].innerHTML;
     // const style = document.getElementsByTagName("style")[4].outerHTML;
     const href = document.getElementsByTagName("link")[4].href;
@@ -36,7 +41,7 @@ const ExportButton = () => {
     const url = URL.createObjectURL(blob);
     const a = document.createElement("a");
     document.body.appendChild(a);
-    a.download = `${filename || "index"}.html`;
+    a.download = `${filename}.html`;
     a.href = url;
     a.click();
     a.remove();
@@ -45,7 +50,6 @@ const ExportButton = () => {
 
   return (
     <span className="export">
-      <input className="export__filename" value={filename} onChange={val => setFilename(val.target.value)} placeholder="input file name" />
       <span className="export__btn" onClick={exportHtml}>
         <i className="fas fa-file-download"></i>
       </span>
