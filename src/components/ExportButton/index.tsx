@@ -36,7 +36,7 @@ const ExportButton = () => {
     const url = URL.createObjectURL(blob);
     const a = document.createElement("a");
     document.body.appendChild(a);
-    a.download = `${filename}.html`;
+    a.download = `${filename || "index"}.html`;
     a.href = url;
     a.click();
     a.remove();
@@ -45,7 +45,7 @@ const ExportButton = () => {
 
   return (
     <span className="export">
-      <input className="export__filename" value={filename} onChange={val => setFilename(val.target.value)} />
+      <input className="export__filename" value={filename} onChange={val => setFilename(val.target.value)} placeholder="input file name" />
       <span className="export__btn" onClick={exportHtml}>
         <i className="fas fa-file-download"></i>
       </span>
